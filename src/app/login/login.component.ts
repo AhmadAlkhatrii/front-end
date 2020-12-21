@@ -1,13 +1,10 @@
  
 import { loginUserI } from './../loginUserI';
 import { Component, OnInit } from '@angular/core';
-import { FilmService } from '../film.service';
 import { loginUser } from './../loginUser';
-import { templateJitUrl } from '@angular/compiler';
 import { msgRes } from '../msgRes';
-import {MatInputModule} from '@angular/material/input';
-import { SessionStorageService } from '../session-storage-service.service';
 import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -27,15 +24,14 @@ export class LoginComponent implements OnInit {
   userMsg!:msgRes;
   
   loginUserData={};
-  constructor(private auth:AuthService) { }
+  constructor(private auth:AuthService,private _route:Router) { }
   
 
   ngOnInit(): void {
   }
+  
 
   login() {
-
-
     let temp = new loginUser();
     temp.username = this.input_username;
     temp.password = this.input_password;
@@ -65,15 +61,12 @@ export class LoginComponent implements OnInit {
     if(result == " OK "){
     this.display = this.input_username;
     localStorage.setItem("username",this.input_username);
-
+    this._route.navigateByUrl("home");
     }
     else
     {
       this.display = this.userMsg.msg.toString();
     }
-
-
-
 
   }
  

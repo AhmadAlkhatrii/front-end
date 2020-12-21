@@ -27,5 +27,9 @@ export class AuthService {
 
 }
 
+loggedIn(){ // if username is exsist it will return true otherwise false 
+  return !!localStorage.getItem('username')
+}
+
 
 }
