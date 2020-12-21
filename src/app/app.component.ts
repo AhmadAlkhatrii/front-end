@@ -1,3 +1,4 @@
+import { SessionStorageService } from './session-storage-service.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'my-app';
+
+  constructor(private _sessionStorage:SessionStorageService){
+
+  }
+  ngOnInit(){
+    this._sessionStorage.set("guest");
+
+  }
 }

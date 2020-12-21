@@ -1,0 +1,55 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   
+</head>
+
+<div id="myCarousel" class="carousel slide" data-ride="data_ride" >
+
+
+    
+      <div class="carousel-inner" >
+        <div class="item active">
+          <div class="container-fluid movieRow ">
+        <div class="row">      
+      <div class="column"  *ngFor = "let f of filmsAPI" >
+        <div class="card">
+    
+            <img class="image" src="./../../assets/images/F_{{f.fid}}.jpg"/>      
+            <div class="middle"> 
+            <p> Title: {{f.title}} </p>
+          <p> Film ID: {{f.fid}} </p>
+          <p> Genre: {{f.genre}} </p>
+          <p> Year: {{f.year}} </p>
+          <p> Ratings: {{f.rate}} </p>
+           </div>
+    
+       </div>
+       </div>
+    
+    </div>
+    
+          </div> 
+        </div>
+        
+      </div>
+      
+          <!-- Left and right controls -->
+      <a class="left carousel-control"   >
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control"   >
+        <span class="glyphicon glyphicon-chevron-right"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    
+    
+    </div> 
+    

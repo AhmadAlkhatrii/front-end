@@ -1,0 +1,12 @@
+<div class="topnav">
+    <a routerLinkActive="active" routerLink="/test">TEST</a>
+    <a routerLinkActive="active" routerLink="/home">Home</a>
+    <a routerLinkActive="active" routerLink="/courses">About us</a>
+    <div class="topnav-right">
+      <a *ngIf="false ;else guestBlock" routerLinkActive="active" routerLink="/login">Login</a>
+      <ng-template #guestBlock>
+        <a routerLinkActive="active" routerLink="/login">{{username}}</a>
+      </ng-template>
+      
+    </div>
+</div>

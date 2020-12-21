@@ -1,0 +1,9 @@
+footer{
+    background-color: black;
+    height: 100px;
+  }
+footer p{
+    font-size: 30;
+    color: #ddd;
+    text-align: center;
+}
