@@ -4,10 +4,10 @@
 <body>
 <form >
   <div class="container">
-    <label for="uname"><b>Username {{username}} </b></label>
+    <label  ><b>Username {{input_username}}</b></label>
     <input [(ngModel)]="input_username" type="text" placeholder="Enter Username" name="uname" required>
 
-    <label for="psw"><b>Password</b></label>
+    <label  ><b>Password  {{input_password}}</b></label>
     <input [(ngModel)]="input_password" type="password" placeholder="Enter Password" name="psw" required>
         
     <button (click)="login()" type="submit">Login</button>
@@ -15,7 +15,7 @@
       <input type="checkbox" checked="checked" name="remember"> Remember me
     </label>
   </div>
-  <h2>{{userMsg.result}}</h2>
+  <h2 *ngIf="responseReceived" >{{display}}</h2>
   <div class="container" style="background-color:#f1f1f1">
     <button routerLink="/signup" type="button" class="cancelbtn">Sign up</button>
     <span class="psw">Forgot <a href="#">password?</a></span>
@@ -25,7 +25,7 @@
 </body>
 </html>
 
-{{userMsg.result}}
+
     
     <button><a routerLink="/signup">Sign up</a></button>
 

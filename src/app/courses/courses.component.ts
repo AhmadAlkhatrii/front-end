@@ -24,7 +24,7 @@ export class CoursesComponent implements OnInit {
   constructor(private _filmService: FilmService) { }
 
   ngOnInit(): void {
-    this.films = this._filmService.getAllFilms();
+    
     
 
     this._filmService.getAllFilmsAPI()

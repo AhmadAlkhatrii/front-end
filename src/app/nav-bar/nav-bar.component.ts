@@ -17,16 +17,16 @@ export class NavBarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
-    this.username= this._sessionStorage.get();
+
+    if(this.loggedIn())
+    this.username == sessionStorage.getItem("username");
+    else
+    this.username == "Guest";
   }
 
   loggedIn(): boolean{
     
-
-    this.username === localStorage.getItem("username");
-
-    return !!localStorage.getItem("username") ;
+    return !!sessionStorage.getItem("username") ;
   }
 
 }
