@@ -31,5 +31,9 @@ loggedIn(){ // if username is exsist it will return true otherwise false
   return !!localStorage.getItem('username')
 }
 
+getUsername(){ // get username
+  return localStorage.getItem('username')
+}
+
 
 }

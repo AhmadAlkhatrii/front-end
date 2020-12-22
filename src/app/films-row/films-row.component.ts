@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { film } from './../film';
 import { FilmService } from '../film.service';
+import { AuthService } from '../auth.service';
+import { Ifilm } from '../Ifilm';
 
 @Component({
   selector: 'app-films-row',
@@ -10,16 +12,25 @@ import { FilmService } from '../film.service';
 })
 export class FilmsRowComponent implements OnInit {
 
-  public filmsAPI:film[] =[];
+  // 1- recommonded films - using username if it exisit  
+  // 2- all films 
+
+  public recommondedFilmsAPI:Ifilm [] =[];
+  public allFilmsAPI:Ifilm [] =[];
   
-  constructor(private _filmService: FilmService) { }
+  
+  constructor(private _filmService: FilmService,private auth:AuthService) { }
 
   ngOnInit(): void {
-
-    this._filmService.getAllFilmsAPI()
-      .subscribe(data => this.filmsAPI = data);
-      
-
+    if(this.auth.loggedIn())// call recommonded films 
+    {let u = this.auth.getUsername();
+      if(u !=null)
+        this._filmService.getRecommondedFilmsAPI(u)
+        .subscribe(data => this.recommondedFilmsAPI = data);
   }
+    this._filmService.getAllFilmsAPI()
+      .subscribe(data => this.allFilmsAPI = data);
+  }
+  
 
 }
