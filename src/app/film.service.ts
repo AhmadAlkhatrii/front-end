@@ -18,6 +18,8 @@ export class FilmService {
     private _url_recommondedFilms:string ="http://localhost:8080/recommondedfilms/";
     private _url_singleFilm:string ="http://localhost:8080/film/";
     private _url_recommondedFilm:string ="http://localhost:8080/recommondedfilm/";
+   
+    private _url_recommondedFilmsInfo:string ="http://localhost:8080/recommondedfilmsinfo/";
     private view_lenght:string ="/6";
   constructor(private http: HttpClient) { }
 
@@ -35,6 +37,10 @@ getRecommondedFilmsAPI(username:string): Observable <Ifilm[]> {
 
 getRecommondedFilmAPI(username:string,id:number): Observable <Ifilm> {
   return this.http.get <Ifilm> (this._url_recommondedFilm+username+"/"+id);
+}
+
+getRecommondedFilmInfoAPI(username:string,keyword:string): Observable <msgRes> {
+  return this.http.get <msgRes> (this._url_recommondedFilmsInfo+username+"/"+keyword);
 }
 
 }
