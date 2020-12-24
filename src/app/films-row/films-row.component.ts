@@ -1,10 +1,10 @@
+
 import { Ifilm } from './../Ifilm';
-import { Component, OnInit } from '@angular/core';
-import { film } from './../film';
+import { Component, OnInit, SystemJsNgModuleLoader } from '@angular/core';
 import { FilmService } from '../film.service';
 import { AuthService } from '../auth.service';
-
-
+import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { ViewDetailComponent } from '../view-detail/view-detail.component';
 @Component({
   selector: 'app-films-row',
   templateUrl: './films-row.component.html',
@@ -24,7 +24,7 @@ export class FilmsRowComponent implements OnInit {
   public size=10;
   
   
-  constructor(private _filmService: FilmService,private auth:AuthService) { }
+  constructor(private _filmService: FilmService,private auth:AuthService,public dialog: MatDialog) { }
 
   ngOnInit(): void {
     if(this.auth.loggedIn())// call recommonded films 
@@ -42,6 +42,15 @@ export class FilmsRowComponent implements OnInit {
       // get recommonded size
       
   }
+
+  openDialog(fid:number){
+    this.dialog.open(ViewDetailComponent,
+    {data:
+      {fid:fid}
+    }
+    );
+  }
+  
 
   nextButton(){
 
